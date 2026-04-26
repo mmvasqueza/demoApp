@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confetti Sweets - Momentos Dulces Inolvidables</title>
-    <link rel="stylesheet" href="./style.css">
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confetti Sweets - Momentos Dulces Inolvidables</title>
+  <link rel="stylesheet" href="./style.css">
+
 </head>
+
 <body>
-    <!-- <nav class="navbar navbar-expand-lg fixed-top">
+  <!-- <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
         <a href="Index.html"> <i class="bi bi-ballon-heart-fill me-2"></i> Confetti Sweets</a>
         <button type="button"></button>
@@ -19,51 +21,138 @@
     </nav> -->
 
 
-    <!-- Apertura de la barra de navegacion -->
-    <nav class="navbar navbar-expand-lg fixed-top">
+  <!-- Apertura de la barra de navegacion -->
+  <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-    <!-- Identidad del sitio -->
-    <a class="navbar-brand" href="#">Confetti Sweets</a>
-   <!-- Menu de amburguesa para dispositivos moviles -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <!-- Identidad del sitio -->
+      <a class="navbar-brand" href="#">
+        <i class="bi bi-balloon-heart-fill me-2"></i>
+        Confetti Sweets
+      </a>
+      <!-- Menu de amburguesa para dispositivos moviles -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
 
+      <!-- Elementos del menu de navegacion -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#inicio">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#productos">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#reservas">Reservas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#galeria">Galeria</a>
+          </li>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="Index.html">Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Productos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Reservas</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Galeria</a>
-        </li>
+          <li class="nav-item nav-item-cart">
+            <a class="nav-link" href="#" onclick="showCart()"> <i class="bi bi-cart3 fs-5"></i><span
+                class="cart-badge"></span> 0</a>
+          </li>
+          <li class="nav-item ms-3" id="authButtons">
+            <button class="btn btn-primary-custom btn-sm" onclick="showLoginModal()"> Iniciar Sesión </button>
 
-         <li class="nav-item nav-item-cart">
-          <a class="nav-link" href="#" onclick="showCart()"> <i class="bi bi-cart3 fs-5"></i><span class="cart-badge" ></span>  0</a>
-        </li>
-        <li class="nav-item ms-3" id="authButtons" >
-            <button class="btn btn-primary-custom btn-sm" onclick="showLoginModal()"> Iniciar Sesion    </button>
-
-        </li>
-
-
-        
-
-
-        
+          </li>
+          <li class="nav-item ms-3 d-none" id="UserMenu">
+            <div class="dropdown">
+              <button class="btn btn-outline-custom btn-sm dropdown-toggle" type="button" id="userDropdown"
+                data-bs-toggle="dropdown">
+                <i class="bi bi-person-heart me-2"></i> <span id="userName">Usuario</span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <a class="dropdown-item" href="#" onclick="showAdminPanel()"><i class="bi bi-grid me-2"></i>Panel
+                    Admin </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#" onclick="showProfile()"><i class="bi bi-person me-2"></i>Perfil </a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <a class="dropdown-item text-danger" href="#" onclick="logout()"><i
+                      class="bi bi-box-arrow-right me-2"></i>Cerrar Sesión </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+      </div>
     </div>
-  </div>
-</nav>
-    <!-- Aqui finaliza la barra de navegacion -->
+  </nav>
+  <!-- Aqui finaliza la barra de navegacion -->
 
+  <!-- Aqui inicia la seccion de bievenida del sitio -->
+  <section id="inicio" class="hero-section">
+    <div class="container">
+
+      <div class="row align-items-center">
+        <!-- primer divisor de la pagina de bienvenida -->
+        <div class="col-lg-6 hero-content fade-in">
+          <h1 class="hero-title">Celebra Momentos Inolvidables</h1>
+          <p class="hero-subtitle"> Transformamos tus celebraciones en experiencias
+            mágicas con nuestras decoraciones únicas y deliciosos bocadillos. Cada
+            detalle está pensado para crear recuerdos dulces que durarán para siempre.
+          </p>
+          <!-- divisor de botones principales -->
+          <div class="d-flex flex-wrap gap-3">
+            <button class="btn btn-primary-custom" onclick="scrollToProducts()">
+              <i class="bi bi-shop me-2"></i> Ver Productos
+            </button>
+
+            <button class="btn btn-primary-custom" onclick="showReservationModal()">
+              <i class="bi bi-calendar-heart me-2"></i> Reservar Ahora
+            </button>
+          </div>
+
+          <div class="mt-5 d-flex gap-4">
+            <div class="text-center">
+              <h3 class="fw-blod text-pink">500+</h3>
+              <small class="text-muted">Eventos Decorados</small>
+            </div>
+           <div class="text-center">
+              <h3 class="fw-blod text-pink">1000+</h3>
+              <small class="text-muted">Clientes Felices</small>
+            </div>
+             <div class="text-center">
+              <h3 class="fw-blod text-pink">50+</h3>
+              <small class="text-muted">Diseños únicos</small>
+            </div>
+          </div>
+        </div>
+        <!-- segunda divisor de la pagina de bienvenida -->
+        <div class="col-lg-6 position-relative">
+          <div class="text-center position-relative">
+
+            <div style="width: 100%; height: 500px; background: linear-gradient(135deg,var(--pale-pink), var(--light-pink)); border-radius:30% 70% 70% 30% / 30% 30% 70% 70%; display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 60px rgba(255,107,157, 0.3); ">
+              <i class="bi bi-balloon-heart-fill" style="font-size: 8rem;"></i>
+            </div>
+
+            <!-- Elementos flotantes de confetti -->
+            <div class="position-absolute" style="top:10%; right:10%; animation: float 5s ease-in-out infinite;">  
+              <i class="bi bi-cake2-fill text-warning" style="font-size: 3rem;"></i>
+            </div>
+            <div class="position-absolute" style="bottom:20%; left:5%; animation: float 5s ease-in-out infinite reverse;">  
+              <i class="bi bi-cup-hot-fill" style="font-size: 2.5rem; color: var(--secondary-pink);"></i>
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  <!--Aqui termina de bievenida del sitio -->
 </body>
+
 </html>
