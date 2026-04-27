@@ -116,11 +116,11 @@
               <h3 class="fw-blod text-pink">500+</h3>
               <small class="text-muted">Eventos Decorados</small>
             </div>
-           <div class="text-center">
+            <div class="text-center">
               <h3 class="fw-blod text-pink">1000+</h3>
               <small class="text-muted">Clientes Felices</small>
             </div>
-             <div class="text-center">
+            <div class="text-center">
               <h3 class="fw-blod text-pink">50+</h3>
               <small class="text-muted">Diseños únicos</small>
             </div>
@@ -130,15 +130,17 @@
         <div class="col-lg-6 position-relative">
           <div class="text-center position-relative">
 
-            <div style="width: 100%; height: 500px; background: linear-gradient(135deg,var(--pale-pink), var(--light-pink)); border-radius:30% 70% 70% 30% / 30% 30% 70% 70%; display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 60px rgba(255,107,157, 0.3); ">
+            <div
+              style="width: 100%; height: 500px; background: linear-gradient(135deg,var(--pale-pink), var(--light-pink)); border-radius:30% 70% 70% 30% / 30% 30% 70% 70%; display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 60px rgba(255,107,157, 0.3); ">
               <i class="bi bi-balloon-heart-fill" style="font-size: 8rem;"></i>
             </div>
 
             <!-- Elementos flotantes de confetti -->
-            <div class="position-absolute" style="top:10%; right:10%; animation: float 5s ease-in-out infinite;">  
+            <div class="position-absolute" style="top:10%; right:10%; animation: float 5s ease-in-out infinite;">
               <i class="bi bi-cake2-fill text-warning" style="font-size: 3rem;"></i>
             </div>
-            <div class="position-absolute" style="bottom:20%; left:5%; animation: float 5s ease-in-out infinite reverse;">  
+            <div class="position-absolute"
+              style="bottom:20%; left:5%; animation: float 5s ease-in-out infinite reverse;">
               <i class="bi bi-cup-hot-fill" style="font-size: 2.5rem; color: var(--secondary-pink);"></i>
             </div>
 
@@ -153,6 +155,115 @@
     </div>
   </section>
   <!--Aqui termina de bievenida del sitio -->
+
+  <!-- Esta esta la seccion donde se visualizan los productos -->
+  <section>
+    <div id="productos" class="py-5 my-5">
+      <div class="container">
+        <h2 class="display-4 fw'blod mb-3" style="color: var(dark-pink);"> Nuestros Productos</h2>
+        <p class="lead text-muted">Descubre nuestra colección de dulces y decoraciones para cada ocasión</p>
+      </div>
+      <!-- categorias de productos -->
+      <div class="d-flex justify-content-center gap-3 mb-5 flex-wrap">
+        <button class="btn btn-primary-custom active" onclick="filterProducts('all')">Todos </button>
+        <button class="btn btn-primary-custom " onclick="filterProducts('decoraciones')">Decoraciones</button>
+        <button class="btn btn-primary-custom " onclick="filterProducts('bocadillos')">Bocadillos</button>
+        <button class="btn btn-primary-custom " onclick="filterProducts('Paquetes')">Paquetes</button>
+      </div>
+      <!-- Renderizar productos de la base de datos  -->
+      <div class="row gap-4" id="productsContainer">
+        <!-- Dentro de este div se renderizaran los productos dinamicamente -->
+
+      </div>
+
+    </div>
+  </section>
+  <!-- end products section -->
+
+
+  <!-- Inicia Seccion de Reservaciones -->
+  <section id="reservas" class="py-5 my-5 bg-white">
+    <div class="container">
+      <div class="row">
+        <!-- primera columna de reservaciones -->
+        <div class="col-5 mb-4 mb-lg-0">
+          <h2 class="display-5 fw-blod mb-4" style="color: var(--dark-pink);"> Programa una cita</h2>
+          <p>Asegura tu fecha especial con anticipación. Nuestro calendario en tiempo real te muestra la disponibilidad
+            instantánea.</p>
+          <div class="d-flex flex-column gap-3">
+            
+            <div class="d-flex align-items-center gap-3 p-3 rounded-3">
+              <i class="bi bi-check-circle-fill fas'4" style="color: var(--primary-pink)" ;></i>
+              <div>
+                <h6 class="mb-0 fw-blod">Confirmacion Inmediata</h6>
+                <small class="text-muted">Recibe confirmación al instante</small>
+              </div>
+            </div>
+
+
+             <div class="d-flex align-items-center gap-3 p-3 rounded-3">
+              <i class="bi bi-check-circle-fill fas'4" style="color: var(--primary-pink)" ;></i>
+              <div>
+                <h6 class="mb-0 fw-blod">Pago Seguro</h6>
+                <small class="text-muted">Múltiples métodos de pago protegidos</small>
+              </div>
+            </div>
+
+
+             <div class="d-flex align-items-center gap-3 p-3 rounded-3">
+              <i class="bi bi-check-circle-fill fas'4" style="color: var(--primary-pink)" ;></i>
+              <div>
+                <h6 class="mb-0 fw-blod">Flexibilidad Total</h6>
+                <small class="text-muted">Modifica tu reserva hasta 48h antes </small>
+              </div>
+            </div>
+
+          </div>
+        </div>
+<!-- Aqui termina la primer columna de la seccion de reserva -->
+
+<!-- Inicia segunda columna -->
+        <div class="col-lg-7">
+          <div class="calendar-container">
+            <div class="calendar-header">
+
+              <button class="btn btn-sm btn-outline-secondary" onclick="changeMonth(-1)">
+                <i class="bi bi-chevron-left  "></i>
+              </button>
+              <h4 class="mb-0 fw-blod" id="currentMonthYear">Abril 2026 </h4>
+               <button  class="btn btn-sm btn-outline-secondary" onclick="changeMonth(1)">
+                <i class="bi bi-chevron-right  "></i>
+              </button>
+
+            </div>
+            <!-- Este sera el cuerpo de el calendario que rederizaremos desde JS -->
+            <div class="calendar-grid" id="calendarGrid">
+
+
+            </div>
+
+            <div class="mt-4 d-flex gap-3 justify-content-center flex-wrap">
+              <div class="d-flex align-items-center gap-2">
+                <div>
+
+                </div>
+
+              </div>
+            </div>
+
+
+
+          </div>
+
+        </div>
+        <!-- Aqui finaliza la segunda columna -->
+
+      </div>
+    </div>
+
+
+  </section>
+
 </body>
 
 </html>
