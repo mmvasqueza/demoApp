@@ -157,22 +157,22 @@
   <!--Aqui termina de bievenida del sitio -->
 
   <!-- Esta esta la seccion donde se visualizan los productos -->
-  <section>
-    <div id="productos" class="py-5 my-5">
-      <div class="container">
-        <h2 class="display-4 fw'blod mb-3" style="color: var(dark-pink);"> Nuestros Productos</h2>
-        <p class="lead text-muted">Descubre nuestra colección de dulces y decoraciones para cada ocasión</p>
-      </div>
+  <section id="productos" class="py-5 my-5">
+    <div class="container" >
+      <h2 class="display-4 fw'blod mb-3" style="color: var(dark-pink);"> Nuestros Productos</h2>
+      <p class="lead text-muted">Descubre nuestra colección de dulces y decoraciones para cada ocasión</p>
+  
       <!-- categorias de productos -->
       <div class="d-flex justify-content-center gap-3 mb-5 flex-wrap">
         <button class="btn btn-primary-custom active" onclick="filterProducts('all')">Todos </button>
-        <button class="btn btn-primary-custom " onclick="filterProducts('decoraciones')">Decoraciones</button>
-        <button class="btn btn-primary-custom " onclick="filterProducts('bocadillos')">Bocadillos</button>
-        <button class="btn btn-primary-custom " onclick="filterProducts('Paquetes')">Paquetes</button>
+        <button class="btn btn-outline-custom " onclick="filterProducts('decoraciones')">Decoraciones</button>
+        <button class="btn btn-outline-custom " onclick="filterProducts('bocadillos')">Bocadillos</button>
+        <button class="btn btn-outline-custom " onclick="filterProducts('Paquetes')">Paquetes</button>
       </div>
       <!-- Renderizar productos de la base de datos  -->
       <div class="row gap-4" id="productsContainer">
         <!-- Dentro de este div se renderizaran los productos dinamicamente -->
+        
 
       </div>
 
@@ -264,6 +264,8 @@
 
   </section>
 
+
+  <script src="./script.js"></script>
 </body>
 
 </html>
