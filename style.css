@@ -182,6 +182,7 @@ h1,h2,h3,h4,h5,h6 {
     transform: translateY(-3px);
     color: #fff;
 }
+
 .btn-outline-custom{
     border: 2px solid var(--primary-pink);
     color: var(--primary-pink);
@@ -232,4 +233,69 @@ h1,h2,h3,h4,h5,h6 {
 .products-card:hover{
     box-shadow: 0 20px 60px rgba(255,107,157,0.2);
     transform: translateY(-10px);
+}
+
+.product-image {
+    height: 250px;
+    background: linear-gradient(135deg, var(--pale-pink), var(--soft-pink));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.product-card:hover .product-image::after {
+    opacity: 1;
+}
+
+.product-body {
+    padding: 1.5rem;
+}
+
+.product-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-pink);
+    margin-bottom: 1rem;
+}
+
+.btn-add-cart {
+    background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
+    border: none;
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.btn-add-cart:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(255, 107, 157, 0.4);
+}
+
+.pagination{
+    background: var(--primary-pink) ;
 }
