@@ -1,3 +1,8 @@
+//Desarrollado Por> Marcelo
+// 5/14/2026
+
+
+//Objeto productos
 let products = [];
 
 //Simulamos un tabla de la base de datos
@@ -213,4 +218,3 @@ async function CargarProductosAPI(){
     console.log(token);
 
 }
-

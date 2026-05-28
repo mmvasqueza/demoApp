@@ -158,9 +158,12 @@
 
   <!-- Esta esta la seccion donde se visualizan los productos -->
   <section id="productos" class="py-5 my-5">
+
     <div class="container">
+    <div class="text-center mb-5">
       <h2 class="display-4 fw'blod mb-3" style="color: var(dark-pink);"> Nuestros Productos</h2>
       <p class="lead text-muted">Descubre nuestra colección de dulces y decoraciones para cada ocasión</p>
+    </div>
 
       <!-- categorias de productos -->
       <div class="d-flex justify-content-center gap-3 mb-5 flex-wrap">
@@ -168,10 +171,12 @@
         <button class="btn btn-outline-custom " onclick="filtrarProducts('decoraciones')">Decoraciones</button>
         <button class="btn btn-outline-custom " onclick="filtrarProducts('bocadillos')">Bocadillos</button>
         <button class="btn btn-outline-custom " onclick="filtrarProducts('paquetes')">Paquetes</button>
+
       </div>
       <!-- Renderizar productos de la base de datos  -->
       <div class="row g-4" id="productsContainer">
         <!-- Dentro de este div se renderizaran los productos dinamicamente -->
+        
 
         
          
@@ -269,8 +274,8 @@
 
 
   </section>
+
   <script src="./script.js"></script>
-  <script></script>
 </body>
 
 </html>
