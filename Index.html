@@ -161,7 +161,7 @@
 
     <div class="container">
     <div class="text-center mb-5">
-      <h2 class="display-4 fw'blod mb-3" style="color: var(dark-pink);"> Nuestros Productos</h2>
+      <h2 class="display-4 fw'blod mb-3" style="color: var(--dark-pink);"> Nuestros Productos</h2>
       <p class="lead text-muted">Descubre nuestra colección de dulces y decoraciones para cada ocasión</p>
     </div>
 
@@ -188,7 +188,36 @@
   <!-- end products section -->
 
 
+<!-- Esta esta la seccion donde se visualizan los PRODUCTOS DE LA API -->
+  <section id="productosAPI" class="py-5 my-5">
 
+    <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="display-4 fw'blod mb-3" style="color: var(--dark-pink);"> Nuestros Productos</h2>
+      <p class="lead text-muted">Descubre nuestra colección de dulces y decoraciones para cada ocasión</p>
+    </div>
+
+      <!-- categorias de productos -->
+      <div class="d-flex justify-content-center gap-3 mb-5 flex-wrap">
+        <button class="btn btn-primary-custom active" onclick="filtrarProductsAPI('todos')">Todos </button>
+        <button class="btn btn-outline-custom " onclick="filtrarProductsAPI('men\'s clothing')">Hombres</button>
+        <button class="btn btn-outline-custom " onclick="filtrarProductsAPI('jewelery')">Joyeria</button>
+        <button class="btn btn-outline-custom " onclick="filtrarProductsAPI('women\'s clothing')">Mujeres</button>
+
+      </div>
+      <!-- Renderizar productos de la base de datos  -->
+      <div class="row g-4" id="productsAPIContainer">
+        <!-- Dentro de este div se renderizaran los productos dinamicamente -->
+        
+
+        
+         
+      </div>
+      <!-- Paginacion del sitio web -->
+      <div id="paginationAPI" class="text-center mt-4"></div>
+    </div>
+  </section>
+  <!-- end products section -->
 
 
 

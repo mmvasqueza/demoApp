@@ -52,7 +52,9 @@ const ProductsDB = [
 //Inicializar el engranaje de ejecución
 
 document.addEventListener('DOMContentLoaded',function(){
-    cargarProductos();  
+    cargarProductos(); 
+    AutenticarUsuarios();
+
 
 });
 
@@ -61,6 +63,7 @@ document.addEventListener('DOMContentLoaded',function(){
 function cargarProductos(){
     products = [...ProductsDB];
     renderizarProductos();
+    CargarProductosAPI();
 
 }
 
@@ -88,7 +91,7 @@ function renderizarProductos(filter = 'todos') {
     // Renderizar productos
     contenedor.innerHTML = productosPaginados.map(product => `
         <div class="col-lg-3 col-md-6">
-            <div class="product-card h-100" onclick="showProductDetail(${product.id})">
+            <div class="products-card h-100" onclick="showProductDetail(${product.id})">
                 
                 <div class="product-image">
                          <img src="${product.imagen}" style="  width: "250px",  height: "250px";">
@@ -186,7 +189,7 @@ async function AutenticarUsuarios(){
     //Peticion a la API de tipo GET
     const respuestaAPI = await fetch(API_USUARIOS);
     Usuarios = await respuestaAPI.json();
-    //console.log("Lista de usuarios:", Usuarios);
+    console.log("Lista de usuarios:", Usuarios);
 
     //Peticion de autenticacion de tipo POST
     var RespuestaAuth = await fetch(API_AUTH, {
@@ -217,4 +220,117 @@ async function CargarProductosAPI(){
     var token = await authUsuario.json();
     console.log(token);
 
+
+    var ListaProductos = await fetch(API_PRODUCTOS, {
+        headers:{
+            'Authorization':  `Bearer ${token.token}`,
+            'Content-Type': 'application/json'
+        }
+    })
+
+    ProductosAPI  = await ListaProductos.json();
+
+    console.log('Lista de productos:', ProductosAPI);
+
+
+    productsAPI = [...ProductosAPI];
+    renderizarProductosAPI();
+
+
+
 }
+
+let pActual = 1;
+const itemsXPage = 3;
+
+function renderizarProductosAPI(filter = 'todos') {
+
+    const contenedor = document.getElementById('productsAPIContainer');
+    const paginacion = document.getElementById('paginationAPI');
+
+    // Filtrar productos
+    const filtered = filter === 'todos'
+        ? productsAPI
+        : productsAPI.filter(p => p.category === filter);
+
+    // Calcular índices
+    const INICIO = (pActual - 1) * itemsXPage;
+    const FIN = INICIO + itemsXPage;
+
+    // Productos de la página actual
+    const productosPaginadosAPI = filtered.slice(INICIO, FIN);
+
+    // Renderizar productos
+    contenedor.innerHTML = productosPaginadosAPI.map(product => `
+        <div class="col-lg-4 col-md-6">
+            <div class="products-card h-80" onclick="showProductDetail(${product.id})">
+                
+                <div class="product-image">
+                         <img src="${product.image}" style="width:180px;  height:180px;">
+                   
+                </div>
+
+                <div class="product-body">
+                    <span class="badge bg-light text-dark mb-2">
+                        ${product.category}
+                    </span>
+
+                    <h5 class="product-title">
+                        ${product.title}
+                    </h5>
+
+                    <p class="text-muted small mb-2">
+                         ${product.description.substring(0,60)}...
+                    </p>
+
+                    <div class="product-price"> 
+                         C$${product.price.toFixed(2)}
+                    </div>
+
+                    <button 
+                        class="btn btn-add-cart"
+                        onclick="event.stopPropagation(); addToCart(${product.id})" >
+                        <i class="bi bi-cart-plus me-2"></i>
+                        Agregar
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    `).join('');
+
+    // Total de páginas
+    const totalPages = Math.ceil(filtered.length / itemsXPage);
+
+    // Renderizar paginación
+    let botones = '';
+
+    for (let i = 1; i <= totalPages; i++) {
+        botones += `
+            <button 
+                class="btn ${i === pActual ? ' btn-primary-custom' : 'btn-outline-custom'} mx-1"
+                onclick="CambiarPagina(${i}, '${filter}')">  ${i}
+            </button>
+        `;
+    }
+    paginationAPI.innerHTML = botones;
+}
+
+
+function CambiarPagina(page, filter = 'todos') {
+    pActual = page;
+    renderizarProductosAPI(filter);
+}
+
+function filtrarProductsAPI(categoria) {
+    // Update active button
+    document.querySelectorAll('#productosAPI .btn').forEach(btn => {
+        btn.classList.remove('btn-primary-custom', 'active');
+        btn.classList.add('btn-outline-custom');
+    });
+    event.target.classList.remove('btn-outline-custom');
+    event.target.classList.add('btn-primary-custom', 'active');
+
+    renderizarProductosAPI(categoria);
+}
+
