@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="./style.css">
+    <title></title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <!-- Identidad del sitio -->
+      <a class="navbar-brand" href="#">
+        <i class="bi bi-balloon-heart-fill me-2"></i>
+        Confetti Sweets
+      </a>
+      <!-- Menu de amburguesa para dispositivos moviles -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+
+      <!-- Elementos del menu de navegacion -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#inicio">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#productos">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#reservas">Reservas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#galeria">Galeria</a>
+          </li>
+
+          <li class="nav-item nav-item-cart">
+            <a class="nav-link" href="#" onclick="showCart()"> <i class="bi bi-cart3 fs-5"></i><span
+                class="cart-badge"></span> 0</a>
+          </li>
+          <li class="nav-item ms-3" id="authButtons">
+            <button class="btn btn-primary-custom btn-sm" onclick="showLoginModal()"> Iniciar Sesión </button>
+
+          </li>
+          <li class="nav-item ms-3 d-none" id="UserMenu">
+            <div class="dropdown">
+              <button class="btn btn-outline-custom btn-sm dropdown-toggle" type="button" id="userDropdown"
+                data-bs-toggle="dropdown">
+                <i class="bi bi-person-heart me-2"></i> <span id="userName">Usuario</span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <a class="dropdown-item" href="#" onclick="showAdminPanel()"><i class="bi bi-grid me-2"></i>Panel
+                    Admin </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#" onclick="showProfile()"><i class="bi bi-person me-2"></i>Perfil </a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <a class="dropdown-item text-danger" href="#" onclick="logout()"><i
+                      class="bi bi-box-arrow-right me-2"></i>Cerrar Sesión </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+      </div>
+    </div>
+  </nav>
+  <table id="carritoTable" class="table table-striped d-none">
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+        <th>Total</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody id="cartItems"></tbody>
+  </table>
+  <!-- Aqui finaliza la barra de navegacion -->
+<footer class="bg-grand text-white text-center content-center py-3 mt-5">
+    <p class="mb-0">© 2024 Confetti Sweets. Todos los derechos reservados.</p>
+</footer>
+</footer>
+<button id="scrollTopBtn" class="scroll-top" aria-label="Subir" onclick="scrollToTop()">
+  <i class="bi bi-arrow-up"></i>
+</button>
+<script src="./script.js"></script>
+</body>
+</html>

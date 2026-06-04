@@ -308,4 +308,48 @@ h1,h2,h3,h4,h5,h6 {
     background: var(--primary-pink) ;
 }
 
+/* Espacio para navbar fija y scroll suave */
+body {
+    padding-top: 80px; /* ajusta si tu navbar tiene otra altura */
+    scroll-behavior: smooth;
+}
+
+/* Scrollbar personalizado (WebKit) */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.03);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--primary-pink), var(--secondary-pink));
+    border-radius: 10px;
+}
+
+/* Botón "Subir" */
+.scroll-top{
+    position: fixed;
+    right: 20px;
+    bottom: 30px;
+    background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
+    color: #fff;
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    box-shadow: 0 8px 20px rgba(255,107,157,0.2);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.scroll-top.show{
+    display: flex;
+}
+
 

@@ -174,7 +174,7 @@ PASO 3: CONSUMO DEL ENDPINT CON TOKEN GENERADO
 const API_USUARIOS = "https://fakestoreapi.com/users"
 const API_AUTH = "https://fakestoreapi.com/auth/login"
 const API_PRODUCTOS = "https://fakestoreapi.com/products";
-
+const API_CARRITO = "https://fakestoreapi.com/carts";
 /*Credenciales de acceso del usuario que intenta realizar el consmo de la API*/
 const Credenciales = {
     user:"johnd",
@@ -334,3 +334,31 @@ function filtrarProductsAPI(categoria) {
     renderizarProductosAPI(categoria);
 }
 
+
+// Funciones de scroll: botón "Subir" y scroll a productos
+function scrollToTop(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function scrollToProducts(){
+    const el = document.getElementById('productos');
+    if(el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+window.addEventListener('scroll', () => {
+    const btn = document.getElementById('scrollTopBtn');
+    if(!btn) return;
+    if(window.scrollY > 300) btn.classList.add('show'); else btn.classList.remove('show');
+});
+
+
+//Consumo de la API fake de productos: https://fakestoreapi.com/carts
+
+async function CargarCarritoAPI(){
+    var authUsuario = await fetch(API_AUTH, {	
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+         body: JSON.stringify({'username': `${Credenciales.user}`, 'password':`${Credenciales.pass}`})
+    }) 
+    var token = await authUsuario.json();
+    console.log(token); }
