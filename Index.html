@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confetti Sweets - Momentos Dulces Inolvidables</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+  <!-- <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+        <a href="Index.html"> <i class="bi bi-ballon-heart-fill me-2"></i> Confetti Sweets</a>
+        <button type="button"></button>
+
+        </div>
+
+
+    </nav> -->
+
+
+  <!-- Apertura de la barra de navegacion -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">                                                                                                                                         
+      <!-- Identidad del sitio -->
+      <a class="navbar-brand" href="#">
+        <i class="bi bi-balloon-heart-fill me-2"></i>
+        Confetti Sweets
+      </a>
+      <!-- Menu de amburguesa para dispositivos moviles -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+
+      <!-- Elementos del menu de navegacion -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#inicio">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#productos">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#reservas">Reservas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#galeria">Galeria</a>
+          </li>
+
+          <li class="nav-item nav-item-cart">
+            <a class="nav-link" href="#" onclick="showCart()"> <i class="bi bi-cart3 fs-5"></i><span
+                class="cart-badge"></span> 0</a>
+          </li>
+          <li class="nav-item ms-3" id="authButtons">
+            <button class="btn btn-primary-custom btn-sm" onclick="showLoginModal()"> Iniciar Sesión </button>
+
+          </li>
+          <li class="nav-item ms-3 d-none" id="UserMenu">
+            <div class="dropdown">
+              <button class="btn btn-outline-custom btn-sm dropdown-toggle" type="button" id="userDropdown"
+                data-bs-toggle="dropdown">
+                <i class="bi bi-person-heart me-2"></i> <span id="userName">Usuario</span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <a class="dropdown-item" href="#" onclick="showAdminPanel()"><i class="bi bi-grid me-2"></i>Panel
+                    Admin </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#" onclick="showProfile()"><i class="bi bi-person me-2"></i>Perfil </a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <a class="dropdown-item text-danger" href="#" onclick="logout()"><i
+                      class="bi bi-box-arrow-right me-2"></i>Cerrar Sesión </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+      </div>
+    </div>
+  </nav>
+  <!-- Aqui finaliza la barra de navegacion -->
+
+  <!-- Aqui inicia la seccion de bievenida del sitio -->
+  <section id="inicio" class="hero-section">
+    <div class="container">
+
+      <div class="row align-items-center">
+        <!-- primer divisor de la pagina de bienvenida -->
+        <div class="col-lg-6 hero-content fade-in">
+          <h1 class="hero-title">Celebra Momentos Inolvidables</h1>
+          <p class="hero-subtitle"> Transformamos tus celebraciones en experiencias
+            mágicas con nuestras decoraciones únicas y deliciosos bocadillos. Cada
+            detalle está pensado para crear recuerdos dulces que durarán para siempre.
+          </p>
+          <!-- divisor de botones principales -->
+          <div class="d-flex flex-wrap gap-3">
+            <button class="btn btn-primary-custom" onclick="scrollToProducts()">
+              <i class="bi bi-shop me-2"></i> Ver Productos
+            </button>
+
+            <button class="btn btn-primary-custom" onclick="showReservationModal()">
+              <i class="bi bi-calendar-heart me-2"></i> Reservar Ahora
+            </button>
+          </div>
+
+          <div class="mt-5 d-flex gap-4">
+            <div class="text-center">
+              <h3 class="fw-blod text-pink">500+</h3>
+              <small class="text-muted">Eventos Decorados</small>
+            </div>
+            <div class="text-center">
+              <h3 class="fw-blod text-pink">1000+</h3>
+              <small class="text-muted">Clientes Felices</small>
+            </div>
+            <div class="text-center">
+              <h3 class="fw-blod text-pink">50+</h3>
+              <small class="text-muted">Diseños únicos</small>
+            </div>
+          </div>
+        </div>
+        <!-- segunda divisor de la pagina de bienvenida -->
+        <div class="col-lg-6 position-relative">
+          <div class="text-center position-relative">
+
+            <div
+              style="width: 100%; height: 500px; background: linear-gradient(135deg,var(--pale-pink), var(--light-pink)); border-radius:30% 70% 70% 30% / 30% 30% 70% 70%; display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 60px rgba(255,107,157, 0.3); ">
+              <i class="bi bi-balloon-heart-fill" style="font-size: 8rem;"></i>
+            </div>
+
+            <!-- Elementos flotantes de confetti -->
+            <div class="position-absolute" style="top:10%; right:10%; animation: float 5s ease-in-out infinite;">
+              <i class="bi bi-cake2-fill text-warning" style="font-size: 3rem;"></i>
+            </div>
+            <div class="position-absolute"
+              style="bottom:20%; left:5%; animation: float 5s ease-in-out infinite reverse;">
+              <i class="bi bi-cup-hot-fill" style="font-size: 2.5rem; color: var(--secondary-pink);"></i>
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  <!--Aqui termina de bievenida del sitio -->
+
+  <!-- Esta esta la seccion donde se visualizan los productos -->
+  <section id="productos" class="py-5 my-5">
+
+    <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="display-4 fw'blod mb-3" style="color: var(--dark-pink);"> Nuestros Productos</h2>
+      <p class="lead text-muted">Descubre nuestra colección de dulces y decoraciones para cada ocasión</p>
+    </div>
+
+      <!-- categorias de productos -->
+      <div class="d-flex justify-content-center gap-3 mb-5 flex-wrap">
+        <button class="btn btn-primary-custom active" onclick="filtrarProducts('todos')">Todos </button>
+        <button class="btn btn-outline-custom " onclick="filtrarProducts('decoraciones')">Decoraciones</button>
+        <button class="btn btn-outline-custom " onclick="filtrarProducts('bocadillos')">Bocadillos</button>
+        <button class="btn btn-outline-custom " onclick="filtrarProducts('paquetes')">Paquetes</button>
+
+      </div>
+      <!-- Renderizar productos de la base de datos  -->
+      <div class="row g-4" id="productsContainer">
+        <!-- Dentro de este div se renderizaran los productos dinamicamente -->
+        
+
+        
+         
+      </div>
+      <!-- Paginacion del sitio web -->
+      <div id="pagination" class="text-center mt-4"></div>
+    </div>
+  </section>
+  <!-- end products section -->
+
+
+<!-- Esta esta la seccion donde se visualizan los PRODUCTOS DE LA API -->
+  <section id="productosAPI" class="py-5 my-5">
+
+    <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="display-4 fw'blod mb-3" style="color: var(--dark-pink);"> Nuestros Productos</h2>
+      <p class="lead text-muted">Descubre nuestra colección de dulces y decoraciones para cada ocasión</p>
+    </div>
+
+      <!-- categorias de productos -->
+      <div class="d-flex justify-content-center gap-3 mb-5 flex-wrap">
+        <button class="btn btn-primary-custom active" onclick="filtrarProductsAPI('todos')">Todos </button>
+        <button class="btn btn-outline-custom " onclick="filtrarProductsAPI('men\'s clothing')">Hombres</button>
+        <button class="btn btn-outline-custom " onclick="filtrarProductsAPI('jewelery')">Joyeria</button>
+        <button class="btn btn-outline-custom " onclick="filtrarProductsAPI('women\'s clothing')">Mujeres</button>
+
+      </div>
+      <!-- Renderizar productos de la base de datos  -->
+      <div class="row g-4" id="productsAPIContainer">
+        <!-- Dentro de este div se renderizaran los productos dinamicamente -->
+        
+
+        
+         
+      </div>
+      <!-- Paginacion del sitio web -->
+      <div id="paginationAPI" class="text-center mt-4"></div>
+    </div>
+  </section>
+  <!-- end products section -->
+
+
+
+  <!-- Inicia Seccion de Reservaciones -->
+  <section id="reservas" class="py-5 my-5 bg-white">
+    <div class="container">
+      <div class="row">
+        <!-- primera columna de reservaciones -->
+        <div class="col-5 mb-4 mb-lg-0">
+          <h2 class="display-5 fw-blod mb-4" style="color: var(--dark-pink);"> Programa una cita</h2>
+          <p>Asegura tu fecha especial con anticipación. Nuestro calendario en tiempo real te muestra la disponibilidad
+            instantánea.</p>
+          <div class="d-flex flex-column gap-3">
+
+            <div class="d-flex align-items-center gap-3 p-3 rounded-3">
+              <i class="bi bi-check-circle-fill fas'4" style="color: var(--primary-pink)" ;></i>
+              <div>
+                <h6 class="mb-0 fw-blod">Confirmacion Inmediata</h6>
+                <small class="text-muted">Recibe confirmación al instante</small>
+              </div>
+            </div>
+
+
+            <div class="d-flex align-items-center gap-3 p-3 rounded-3">
+              <i class="bi bi-check-circle-fill fas'4" style="color: var(--primary-pink)" ;></i>
+              <div>
+                <h6 class="mb-0 fw-blod">Pago Seguro</h6>
+                <small class="text-muted">Múltiples métodos de pago protegidos</small>
+              </div>
+            </div>
+
+
+            <div class="d-flex align-items-center gap-3 p-3 rounded-3">
+              <i class="bi bi-check-circle-fill fas'4" style="color: var(--primary-pink)" ;></i>
+              <div>
+                <h6 class="mb-0 fw-blod">Flexibilidad Total</h6>
+                <small class="text-muted">Modifica tu reserva hasta 48h antes </small>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- Aqui termina la primer columna de la seccion de reserva -->
+
+        <!-- Inicia segunda columna -->
+        <div class="col-lg-7">
+          <div class="calendar-container">
+            <div class="calendar-header">
+
+              <button class="btn btn-sm btn-outline-secondary" onclick="changeMonth(-1)">
+                <i class="bi bi-chevron-left  "></i>
+              </button>
+              <h4 class="mb-0 fw-blod" id="currentMonthYear">Abril 2026 </h4>
+              <button class="btn btn-sm btn-outline-secondary" onclick="changeMonth(1)">
+                <i class="bi bi-chevron-right  "></i>
+              </button>
+
+            </div>
+            <!-- Este sera el cuerpo de el calendario que rederizaremos desde JS -->
+            <div class="calendar-grid" id="calendarGrid">
+
+
+            </div>
+
+            <div class="mt-4 d-flex gap-3 justify-content-center flex-wrap">
+              <div class="d-flex align-items-center gap-2">
+                <div>
+
+                </div>
+
+              </div>
+            </div>
+
+
+
+          </div>
+
+        </div>
+        <!-- Aqui finaliza la segunda columna -->
+
+      </div>
+    </div>
+
+
+  </section>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
