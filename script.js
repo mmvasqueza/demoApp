@@ -1,6 +1,6 @@
 //Desarrollado Por> Marcelo
 // 5/14/2026
-
+ 
 
 //Objeto productos
 let products = [];
