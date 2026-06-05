@@ -307,5 +307,60 @@ h1,h2,h3,h4,h5,h6 {
 .pagination{
     background: var(--primary-pink) ;
 }
+/* Tabla de carritos */
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+  box-shadow: 0 10px 30px rgba(255,107,157,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.cart-table th {
+  background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
+  color: white;
+  padding: 12px;
+  text-align: center;
+}
+
+.cart-table td {
+  border: 1px solid #eee;
+  padding: 10px;
+  text-align: center;
+  color: var(--text-dark);
+}
+
+.cart-table tr:hover {
+  background-color: var(--soft-pink);
+}
 
 
+
+/* Tabla de carritos */
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+  box-shadow: 0 10px 30px rgba(255,107,157,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.cart-table th {
+  background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
+  color: white;
+  padding: 12px;
+  text-align: center;
+}
+
+.cart-table td {
+  border: 1px solid #eee;
+  padding: 10px;
+  text-align: center;
+  color: var(--text-dark);
+}
+
+.cart-table tr:hover {
+  background-color: var(--soft-pink);
+}
