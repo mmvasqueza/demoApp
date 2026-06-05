@@ -335,30 +335,30 @@ function filtrarProductsAPI(categoria) {
 }
 
 
-// Funciones de scroll: botón "Subir" y scroll a productos
-function scrollToTop(){
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function scrollToProducts(){
-    const el = document.getElementById('productos');
-    if(el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-window.addEventListener('scroll', () => {
-    const btn = document.getElementById('scrollTopBtn');
-    if(!btn) return;
-    if(window.scrollY > 300) btn.classList.add('show'); else btn.classList.remove('show');
-});
-
-
 //Consumo de la API fake de productos: https://fakestoreapi.com/carts
 
 async function CargarCarritoAPI(){
-    var authUsuario = await fetch(API_AUTH, {	
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-         body: JSON.stringify({'username': `${Credenciales.user}`, 'password':`${Credenciales.pass}`})
-    }) 
+      var authUsuario = await fetch(API_AUTH, {	
+		method: 'POST',
+		headers: {'Content-Type': 'application/json'},
+		 body: JSON.stringify({'username': `${Credenciales.user}`, 'password':`${Credenciales.pass}`})
+        /*body: JSON.stringify(Credenciales)		*/
+	})
+
     var token = await authUsuario.json();
-    console.log(token); }
+    console.log(token);
+ 
+var Carrito = await fetch(API_CARRITO, {
+        headers:{
+            'Authorization':  `Bearer ${token.token}`,
+            'Content-Type': 'application/json'
+        }
+    })
+
+    CarritoApi  = await Carrito.json();
+
+    console.log('Carrito:', carritoApi);
+
+
+
+}
