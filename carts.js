@@ -67,3 +67,57 @@ function renderizarTablaCarritos(datos) {
         tbody.appendChild(tr);
     });
 }
+// DETALLE DE PRODUCTO (MODAL)
+// showProductDetail(id) → abre un modal con los datos completos
+// del producto (local o de la API)
+
+function showProductDetail(id) {
+    const product = products.find(p => p.id === id)
+                 || ProductosAPI.find(p => p.id === id);
+    if (!product) return;
+
+    const nombre      = product.nombre      || product.title;
+    const precio      = product.precio      || product.price;
+    const imagen      = product.imagen      || product.image;
+    const descripcion = product.descripcion || product.description;
+    const categoria   = product.categoria   || product.category;
+
+    // Crea el modal dinámicamente si no existe aún en el DOM
+    let modal = document.getElementById('productDetailModal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'productDetailModal';
+        modal.className = 'modal fade';
+        modal.tabIndex = -1;
+        modal.innerHTML = `
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="detailModalTitle"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body" id="detailModalBody"></div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>`;
+        document.body.appendChild(modal);
+    }
+
+    // Rellena el contenido con los datos del producto
+    document.getElementById('detailModalTitle').textContent = nombre;
+    document.getElementById('detailModalBody').innerHTML = `
+        <div class="row g-3">
+            <div class="col-md-4 text-center">
+                <img src="${imagen}" style="max-width:100%; max-height:220px; object-fit:contain;">
+            </div>
+            <div class="col-md-8">
+                <span class="badge bg-secondary mb-2">${categoria}</span>
+                <p>${descripcion}</p>
+                <h4 class="fw-bold">C$${Number(precio).toFixed(2)}</h4>
+            </div>
+        </div>`;
+
+    new bootstrap.Modal(modal).show();
+}
