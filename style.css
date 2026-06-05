@@ -309,3 +309,52 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 
+
+/* CSS para tabla de carritos API - NicaGrow */
+
+.carritosAPI {
+    background: linear-gradient(135deg, #fff 0%, var(--soft-pink) 100%);
+}
+
+
+.tablaCarritos {
+    background-color: #a84141; 
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(255, 107, 157, 0.1);
+}
+
+
+.tablaCarritos thead {
+    background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
+    color: #b10a0a;
+}
+
+
+.tablaCarritos th {
+    padding: 1rem;
+    font-weight: 600;
+}
+
+
+.tablaCarritos td {
+    padding: 0.9rem;
+    text-align: center;
+}
+
+
+.detalle-productos {
+    text-align: left;
+}
+
+
+.detalle-productos ul {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+
+.detalle-productos li {
+    margin-bottom: 0.3rem;
+}
+
