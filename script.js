@@ -184,6 +184,7 @@ const Credenciales = {
 let Usuarios = [];
 let ProductosAPI = [];
 let productsAPI = [];
+let CarritoApi = [];
 
 async function AutenticarUsuarios(){
     //Peticion a la API de tipo GET
@@ -357,8 +358,8 @@ var Carrito = await fetch(API_CARRITO, {
 
     CarritoApi  = await Carrito.json();
 
-    console.log('Carrito:', carritoApi);
+    console.log('Carrito:', CarritoApi);
 
-
+    Carritosd= [...CarritoApi];
 
 }
