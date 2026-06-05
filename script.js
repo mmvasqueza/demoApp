@@ -361,5 +361,69 @@ var Carrito = await fetch(API_CARRITO, {
     console.log('Carrito:', CarritoApi);
 
     Carritosd= [...CarritoApi];
-
+    renderizarCarritoAPI(Carritosd)
 }
+
+async function renderizarCarritoAPI(carritos) {
+
+    const tbody = document.getElementById("cartItems");
+
+    if (!tbody) return;
+
+    tbody.innerHTML = "";
+
+    let totalGeneral = 0;
+
+    const carrito = carritos[0];
+
+    for (const item of carrito.products) {
+
+        const responseProducto = await fetch(
+            `${API_PRODUCTOS}/${item.productId}`
+        );
+
+        const producto = await responseProducto.json();
+
+        const totalProducto =
+            producto.price * item.quantity;
+
+        totalGeneral += totalProducto;
+
+        tbody.innerHTML += `
+            <tr>
+                <td>${producto.title}</td>
+
+                <td>${item.quantity}</td>
+
+                <td>C$${producto.price.toFixed(2)}</td>
+
+                <td>C$${totalProducto.toFixed(2)}</td>
+
+                <td class="text-center">
+                    <button
+                        class="btn btn-danger btn-sm">
+                        Eliminar
+                    </button>
+                </td>
+            </tr>
+        `;
+    }
+
+    tbody.innerHTML += `
+        <tr>
+            <td colspan="3" class="text-end fw-bold">
+                Total General
+            </td>
+
+            <td class="fw-bold">
+                C$${totalGeneral.toFixed(2)}
+            </td>
+
+            <td></td>
+        </tr>
+    `;
+}
+
+document.addEventListener('DOMContentLoaded',function(){
+    CargarCarritoAPI();
+})
