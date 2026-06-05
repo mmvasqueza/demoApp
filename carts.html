@@ -52,3 +52,31 @@
 </html>
 </body>
 </html>
+
+<section class="py-5 my-5">
+    <div class="container mt-5">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold" style="color: var(--dark-pink);">Carritos Registrados</h2>
+        <p class="lead text-muted">Historial de compras registradas en el sistema</p>
+      </div>
+
+      <div class="table-responsive shadow-sm rounded-3">
+        <table class="table table-hover table-striped align-middle bg-white mb-0">
+          <thead class="text-white" style="background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));">
+            <tr>
+              <th scope="col" class="py-3 px-4">ID del Carrito</th>
+              <th scope="col" class="py-3">ID del Usuario</th>
+              <th scope="col" class="py-3">Fecha de Registro</th>
+              <th scope="col" class="py-3">Cantidad de Productos</th>
+            </tr>
+          </thead>
+          <tbody id="cartsTableBody">
+            <tr><td colspan="4" class="text-center py-4">Cargando datos...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <script src="./carts.js"></script>
+</html>
