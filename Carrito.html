@@ -1,43 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="./style.css">
-    <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title></title>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top">
+  <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
       <!-- Identidad del sitio -->
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="/Index.html">
         <i class="bi bi-balloon-heart-fill me-2"></i>
         Confetti Sweets
       </a>
-      <!-- Menu de amburguesa para dispositivos moviles -->
+      <!-- Menu de hamburguesa para dispositivos moviles -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-
       <!-- Elementos del menu de navegacion -->
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#inicio">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#productos">Productos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#reservas">Reservas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#galeria">Galeria</a>
+            <a class="nav-link active" aria-current="page" href="/Index.html">Inicio</a>
           </li>
 
           <li class="nav-item nav-item-cart">
-            <a class="nav-link" href="#" onclick="showCart()"> <i class="bi bi-cart3 fs-5"></i><span
+            <a class="nav-link" href="/Carrito.html" onclick="showCart()"> <i class="bi bi-cart3 fs-5"></i><span
                 class="cart-badge"></span> 0</a>
           </li>
           <li class="nav-item ms-3" id="authButtons">
@@ -56,7 +48,8 @@
                     Admin </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#" onclick="showProfile()"><i class="bi bi-person me-2"></i>Perfil </a>
+                  <a class="dropdown-item" href="#" onclick="showProfile()"><i class="bi bi-person me-2"></i>Perfil
+                  </a>
                 </li>
                 <li>
                   <hr class="dropdown-divider">
@@ -71,27 +64,42 @@
       </div>
     </div>
   </nav>
-  <table id="carritoTable" class="table table-striped d-none">
-    <thead>
-      <tr>
-        <th>Producto</th>
-        <th>Cantidad</th>
-        <th>Precio</th>
-        <th>Total</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody id="cartItems"></tbody>
-  </table>
-  
-  <!-- Aqui finaliza la barra de navegacion -->
-<footer class="bg-grand text-white text-center content-center py-3 mt-5">
-    <p class="mb-0">© 2024 Confetti Sweets. Todos los derechos reservados.</p>
-</footer>
 
-<button onclick="CargarCarritoAPI()">
-    consumir API
-</button>
-<script src="./script.js"></script>
+  <main>
+    <!-- Contenedor del carrito -->
+    <div class="container mt-5 pt-3">
+      <h2 class="mb-4">Mi Carrito</h2>
+
+      <div class="table-responsive">
+        <table id="carritoTable" class="table table-striped table-hover table-bordered align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Precio</th>
+              <th>Total</th>
+              <th class="text-center">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="cartItems">
+            <!-- Los items del carrito se cargarán aquí -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- Aqui finaliza la barra de navegacion -->
+  <footer class="bg-brand text-white text-center content-center py-3 mt-5">
+    <p class="mb-0">© 2024 Confetti Sweets. Todos los derechos reservados.</p>
+  </footer>
+
+  <button id="scrollTopBtn" class="scroll-top" aria-label="Subir" onclick="scrollToTop()">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./script.js"></script>
 </body>
+
 </html>
