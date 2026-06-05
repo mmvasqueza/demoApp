@@ -44,6 +44,13 @@
           <li class="nav-item">
             <a class="nav-link" href="#productos">Productos</a>
           </li>
+<li class="nav-item">
+            <a class="nav-link" href="#carritosAPI">
+              <i class="bi bi-cart-check me-1"></i>
+              Carritos
+            </a>
+          </li>
+
           <li class="nav-item">
             <a class="nav-link" href="#reservas">Reservas</a>
           </li>
@@ -218,6 +225,65 @@
     </div>
   </section>
   <!-- end products section -->
+
+<!-- inicia seccion de carritos -->
+  <section id="carritosAPI" class="py-5 my-5 bg-white">
+    <div class="container">
+
+
+      <div class="text-center mb-5">
+        <h2 class="display-4 fw-bold mb-3" style="color: var(--dark-pink);">
+          Carritos de Compra
+        </h2>
+        <p class="lead text-muted">
+          Consulta de carritos registrados desde Fake Store API
+        </p>
+      </div>
+
+
+      <div class="card border-0 shadow-lg rounded-4">
+        <div class="card-header text-white text-center py-4"
+          style="background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));">
+          <h4 class="mb-0 fw-bold">
+            <i class="bi bi-basket2-fill me-2"></i>
+            Lista de Carritos Registrados
+          </h4>
+        </div>
+
+
+        <div class="card-body p-4">
+          <div id="mensajeCarritos" class="alert alert-info text-center fw-bold" role="alert">
+            Cargando carritos...
+          </div>
+
+
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle text-center" id="tablaCarritos">
+              <thead class="table-light">
+                <tr>
+                  <th scope="col">ID del carrito</th>
+                  <th scope="col">ID del usuario</th>
+                  <th scope="col">Fecha</th>
+                  <th scope="col">Cantidad de productos</th>
+                  <th scope="col">Detalle de productos</th>
+                </tr>
+              </thead>
+
+
+              <tbody id="carritosContainer">
+                <!-- Aquí se cargarán los carritos desde JavaScript -->
+              </tbody>
+            </table>
+          </div>
+
+
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+  <!-- fin de seccion de carritos -->
 
 
 
